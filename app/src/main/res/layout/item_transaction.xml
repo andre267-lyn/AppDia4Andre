@@ -9,50 +9,49 @@
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID Transaksi: "
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:text="@string/transaction_id"
+        android:textSize="16sp"/>
 
     <TextView
-        android:id="@+id/tvJumlah"
+        android:id="@+id/tvAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jumlah: "
+        android:text="@string/amount"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tvNamaPengirim"
+        android:id="@+id/tvSenderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nama Pengirim: "
+        android:text="@string/sender_name"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tvNamaPenerima"
+        android:id="@+id/tvReceiverName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nama Penerima: "
+        android:text="@string/receiver_name"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status: "
+        android:text="@string/status"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tvTanggal"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tanggal: "
+        android:text="@string/date"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tvJenis"
+        android:id="@+id/tvType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jenis: "
+        android:text="@string/type"
         android:textSize="16sp" />
 
 </LinearLayout>
