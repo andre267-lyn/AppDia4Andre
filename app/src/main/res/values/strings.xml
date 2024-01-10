@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">AppDIA4</string>
+    <string name="ewallet">E-Wallet</string>
+    <string name="welcome">Welcome to E-Wallet</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="andre">Andre</string>
+    <string name="sender_name">Sender Name:</string>
+    <string name="transaction_id">Transaction ID:</string>
+    <string name="receiver_name">Receiver Name:</string>
+    <string name="status">Status:</string>
+    <string name="type">Type:</string>
+    <string name="date">Date:</string>
+    <string name="amount">Amount:</string>
+    <string name="helloblank">Hello Blank Fragment</string>
+    <string name="register">Register</string>
+    <string name="hello_login">Hello There, Welcome Back</string>
+    <string name="register_continue">Register In to Continue</string>
+    <string name="email">email</string>
+    <string name="phone">Phone</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+
+</resources>
