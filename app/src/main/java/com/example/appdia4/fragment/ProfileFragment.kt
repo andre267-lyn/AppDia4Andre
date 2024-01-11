@@ -20,12 +20,13 @@ class ProfileFragment : Fragment() {
     ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
+        // instance to object preference helper
         preferenceHelper = PreferenceHelper(requireContext())
 
-        // Muat data pengguna dari SharedPreferences menggunakan helper
+        // Load user data from SharedPreferences using helper
         val username = preferenceHelper.getString(PreferenceHelper.KEY_USERNAME, "")
 
-        binding.usernameTextView.text = "Selamat datang, $username!"
+        binding.usernameTextView.text = "welcome, $username!"
 
         return binding.root
     }

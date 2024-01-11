@@ -29,6 +29,7 @@ class RegisterActivity : AppCompatActivity() {
             val userPassword = binding.etUserPassword.text.toString()
 
             // validation input
+
             val validation = RegisterValidation()
             if (validation.validatePhone(userPhone) && validation.validateEmail(userEmail) && validation.validatePassword(userPassword)) {
                 //call methode register from view model

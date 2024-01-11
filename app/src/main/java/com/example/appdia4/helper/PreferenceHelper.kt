@@ -3,7 +3,7 @@ package com.example.appdia4.helper
 import android.content.Context
 import android.content.SharedPreferences
 
-class PreferenceHelper(context: Context) {
+class PreferenceHelper(val context: Context) {
 
     private val prefs: SharedPreferences =
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
