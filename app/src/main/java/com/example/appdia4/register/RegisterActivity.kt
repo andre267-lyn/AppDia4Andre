@@ -18,22 +18,28 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // prepare the view model
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
+        // click registration button
         binding.btnRegister.setOnClickListener {
             val userName = binding.etUserName.text.toString()
             val userPhone = binding.etUserPhone.text.toString()
             val userEmail = binding.etUserEmail.text.toString()
             val userPassword = binding.etUserPassword.text.toString()
 
+            // validation input
             val validation = RegisterValidation()
             if (validation.validatePhone(userPhone) && validation.validateEmail(userEmail) && validation.validatePassword(userPassword)) {
+                //call methode register from view model
                 viewModel.register(userName, userPhone, userEmail, userPassword)
             } else {
+                // message using snackbar if invalid
                 Snackbar.make(binding.root, "Invalid input", Snackbar.LENGTH_LONG).show()
             }
         }
 
+        //Livedata ouput registration
         viewModel.registerLiveData.observe(this) { result ->
             if (result.success) {
                 // Registration successful

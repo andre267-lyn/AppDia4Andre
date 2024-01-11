@@ -1,11 +1,10 @@
 package com.example.appdia4.retrofit
 
 import retrofit2.http.Body
-import retrofit2.http.POST
 
 interface ApiService {
 
-    @POST("/register")
+    // POST request to the "/register" endpoint
     suspend fun register(@Body registerData: RegisterData): RegisterResponse
 
 }

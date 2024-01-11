@@ -17,30 +17,20 @@ class RegisterRepository {
 
         return try {
             val response = RetrofitHelper.apiService.register(registerData)
+
             if (!response.success) {
-                RegisterResponse(
-                    success = false,
-                    message = response.message ?: "Registration failed",
-                    errorCode = response.errorCode ?: "Unknown error",
-                    data = null
-                )
+                val errorMessage = response.message ?: "Registration failed"
+                val errorCode = response.errorCode ?: "Unknown error"
+                RegisterResponse(success = false, message = errorMessage, errorCode = errorCode, data = null)
             } else {
                 response
             }
         } catch (e: HttpException) {
-            RegisterResponse(
-                success = false,
-                message = "Registration failed: ${e.message}",
-                errorCode = e.code().toString(),
-                data = null
-            )
+            // Handle HTTP-related exceptions
+            RegisterResponse(success = false, message = "Registration failed: ${e.message}", errorCode = e.code().toString(), data = null)
         } catch (e: Exception) {
-            RegisterResponse(
-                success = false,
-                message = "Registration failed: ${e.message}",
-                errorCode = null,
-                data = null
-            )
+            // Handle other exceptions
+            RegisterResponse(success = false, message = "Registration failed: ${e.message}", errorCode = null, data = null)
         }
     }
 }

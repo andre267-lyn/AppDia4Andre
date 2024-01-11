@@ -1,54 +1,46 @@
 package com.example.appdia4
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.appdia4.databinding.ActivityLoginBinding
-import com.google.android.material.textfield.TextInputLayout
+import com.example.appdia4.fragment.ProfileFragment
+import com.example.appdia4.helper.PreferenceHelper
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var preferenceHelper: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.loginBtn.setOnClickListener {
-            validateAndProceed()
+        preferenceHelper = PreferenceHelper(this)
+
+        val loginButton: Button = findViewById(R.id.loginBtn)
+        loginButton.setOnClickListener {
+            performLogin()
         }
     }
 
-    private fun validateAndProceed() {
-        Log.d("FragmentActivity", "Validating credentials...")
+    private fun performLogin() {
         val username = binding.username.editText?.text.toString()
         val password = binding.password.editText?.text.toString()
 
-        if (username.isNotEmpty() && password.isNotEmpty()) {
+        if (username == "andre" && password == "123") {
+            // Save user data in SharedPreferences using the helper
+            preferenceHelper.saveString(PreferenceHelper.KEY_USERNAME, username)
+            preferenceHelper.saveBoolean(PreferenceHelper.KEY_IS_LOGGED_IN, true)
 
-            if (isAuthorizedUser(username, password)) {
-
-                val intent = Intent(this, FragmentActivity::class.java)
-                startActivity(intent)
-                finish()
-            } else {
-
-                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
-            }
+            // Navigate to the ProfileFragment
+            val fragment = ProfileFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, fragment)
+                .commit()
         } else {
-
-            Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
+            // Handle login failure
         }
-    }
-
-    private fun isAuthorizedUser(username: String, password: String): Boolean {
-        return username.isNotEmpty() && password.isNotEmpty()
-
     }
 }
